@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titel}"></title>
+</head>
+<body>
+
+<style>
+
+    body{
+        margin: 0;
+    }
+
+
+
+    #welcome{
+      Background-color: black;
+      margin: 0;
+      color: white;
+
+
+    }
+
+    nav {
+
+        color: white;
+
+
+    }
+
+    #story{
+      font-style: italic;
+
+    }
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+<h1 id = "welcome"> Welcome to NBA <img src="https://cdn.sologo.ai/2025/0424/20250424031403894.png" width="50"> </h1>
+
+<br>
+
+<div th:replace="~{nav :: navbar}"></div>
+
+<br>
+<br>
+
+
+<div id = "story">
+    The NBA began from the growth of basketball in North America:
+    1. Basketball was invented in 1891 by Canadian teacher James Naismith. He wanted an indoor sport that students could play during winter.
+    2. In 1946, owners of large ice-hockey arenas created the Basketball Association of America (BAA). They wanted events in their arenas when hockey was not being played.
+    3. The first BAA game was played on November 1, 1946, between the New York Knickerbockers and Toronto Huskies. New York won 68–66.
+    4. Another league called the National Basketball League (NBL) already existed. The BAA and NBL competed for teams and talented players.
+    5. In 1949, the BAA and NBL joined together. The combined league became the National Basketball Association, or NBA.
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
