@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nieuwe gast</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: kop}"></header>
+
+<main>
+    <h2>Nieuwe gast</h2>
+
+    <form class="formulier" method="post" th:action="@{/gasten}" th:object="${gast}">
+        <label for="name">Naam</label>
+        <input type="text" id="name" th:field="*{name}" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" th:field="*{email}" required>
+
+        <label for="telefoonNummer">Telefoonnummer</label>
+        <input type="text" id="telefoonNummer" th:field="*{telefoonNummer}">
+
+        <div class="knoppen">
+            <button type="submit">Opslaan</button>
+            <a th:href="@{/gasten}">Annuleren</a>
+        </div>
+    </form>
+</main>
+
+</body>
+</html>

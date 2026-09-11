@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kamers</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: kop}"></header>
+
+<main>
+    <h2>Kamers</h2>
+
+    <table th:if="${!kamers.isEmpty()}">
+        <tr>
+            <th>Nummer</th>
+            <th>Type</th>
+            <th>Max personen</th>
+            <th>Prijs per nacht</th>
+            <th>Verdieping</th>
+            <th></th>
+        </tr>
+        <tr th:each="kamer : ${kamers}">
+            <td th:text="${kamer.nummer}">101</td>
+            <td th:text="${kamer.type}">type</td>
+            <td th:text="${kamer.maxPersonen}">2</td>
+            <td th:text="'EUR ' + ${#numbers.formatDecimal(kamer.prijsPerNacht, 1, 'POINT', 2, 'COMMA')}">EUR 0,00</td>
+            <td>
+                <a class="knop" th:href="@{/reseveringen/nieuw(kamerNummer=${kamer.nummer})}">Reserveren</a>
+            </td>
+        </tr>
+    </table>
+
+    <p class="leeg" th:if="${kamers.isEmpty()}">Nog geen kamers.</p>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gasten</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: kop}"></header>
+
+<main>
+    <h2>Gasten</h2>
+
+    <p><a class="knop" th:href="@{/gasten/nieuw}">Nieuwe gast</a></p>
+
+    <table th:if="${!gasten.isEmpty()}">
+        <tr>
+            <th>Nummer</th>
+            <th>Naam</th>
+            <th>E-mail</th>
+            <th>Telefoon</th>
+            <th></th>
+        </tr>
+        <tr th:each="gast : ${gasten}">
+            <td th:text="${gast.id}">1</td>
+            <td th:text="${gast.name}">Naam</td>
+            <td th:text="${gast.email}">mail</td>
+            <td th:text="${gast.telefoonNummer}">06</td>
+            <td>
+                <form method="post" th:action="@{/gaste/__${gast.id}__/verwijderen}">
+                    <button type="submit" class="verwijder">Verwijderen</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <p class="leeg" th:if="${gasten.isEmpty()}">Nog geen gasten.</p>
+</main>
+
+</body>
+</html>
+
+

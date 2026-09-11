@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #1f2933;
+    background: #f5f7fa;
+}
+
+header {
+    background: #1f3a5f;
+    color: #fff;
+    padding: 1.25rem 2rem;
+}
+
+header h1 {
+    margin: 0 0 0.75rem;
+    font-size: 1.35rem;
+}
+
+nav a {
+    color: #cfe0f5;
+    text-decoration: none;
+    margin-right: 1.25rem;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+main {
+    max-width: 60rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+h2 {
+    font-size: 1.15rem;
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+th, td {
+    text-align: left;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid #e4e7eb;
+}
+
+th {
+    background: #eef2f7;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #52606d;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.leeg {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 6px;
+    color: #7b8794;
+}
+
+.kaarten {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.kaart {
+    flex: 1 1 10rem;
+    background: #fff;
+    border-radius: 6px;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.kaart .getal {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1f3a5f;
+}
+
+.kaart .label {
+    color: #7b8794;
+    font-size: 0.85rem;
+}
+
+.ja {
+    color: #0b7c3f;
+    font-weight: 600;
+}
+
+.nee {
+    color: #b3261e;
+    font-weight: 600;
+}
+
+.knop {
+    display: inline-block;
+    background: #1f3a5f;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.knop:hover {
+    background: #2c507f;
+}
+
+.formulier {
+    background: #fff;
+    border-radius: 6px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    max-width: 26rem;
+}
+
+.formulier label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    color: #52606d;
+}
+
+.formulier input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cbd2d9;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.formulier button {
+    background: #1f3a5f;
+    color: #fff;
+    border: none;
+    padding: 0.55rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.formulier button:hover {
+    background: #2c507f;
+}
+
+.knoppen {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.knoppen a {
+    color: #7b8794;
+    font-size: 0.9rem;
+}
+
+.verwijder {
+    background: none;
+    border: 1px solid #cbd2d9;
+    color: #b3261e;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.verwijder:hover {
+    background: #fdecea;
+    border-color: #b3261e;
+}
+
+.formulier select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cbd2d9;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background: #fff;
+}
+
+.fout {
+    background: #fdecea;
+    border: 1px solid #f5c2bd;
+    color: #b3261e;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    max-width: 26rem;
+}
+
+.vinkje {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    color: #1f2933;
+}
+
+.vinkje input {
+    width: auto;
+    margin: 0;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nieuwe resevering</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: kop}"></header>
+
+<main>
+    <h2>Nieuwe resevering</h2>
+
+    <p class="fout" th:if="${param.fout != null}">De einddatum moet na de startdatum liggen.</p>
+
+    <p class="leeg" th:if="${gasten.isEmpty() or kamers.isEmpty()}">
+        Je hebt minstens een gast en een kamer nodig voordat je kunt reserveren.
+    </p>
+
+    <form class="formulier" method="post" th:action="@{/reseveringen}"
+          th:unless="${gasten.isEmpty() or kamers.isEmpty()}">
+
+        <label for="gastId">Gast</label>
+        <select id="gastId" name="gastId" required>
+            <option th:each="gast : ${gasten}"
+                    th:value="${gast.id}"
+                    th:text="${gast.name}">naam</option>
+        </select>
+
+        <label for="kamerNummer">Kamer</label>
+        <select id="kamerNummer" name="kamerNummer" required>
+            <option th:each="kamer : ${kamers}"
+                    th:value="${kamer.nummer}"
+                    th:selected="${kamer.nummer == gekozenKamer}"
+                    th:text="${kamer.nummer} + ' - ' + ${kamer.type}">101</option>
+        </select>
+
+        <label for="start">Vanaf</label>
+        <input type="date" id="start" name="start" required>
+
+        <label for="eind">Tot</label>
+        <input type="date" id="eind" name="eind" required>
+
+        <label class="vinkje">
+            <input type="checkbox" name="betaald" value="true">
+            Al betaald
+        </label>
+
+        <div class="knoppen">
+            <button type="submit">Reserveren</button>
+            <a th:href="@{/kamers}">Annuleren</a>
+        </div>
+    </form>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel - overzicht</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: kop}"></header>
+
+<main>
+    <h2>Overzicht</h2>
+    <div class="kaarten">
+        <div class="kaart">
+            <div class="getal" th:text="${aantalGasten}">0</div>
+            <div class="label">gasten</div>
+        </div>
+        <div class="kaart">
+            <div class="getal" th:text="${aantalKamers}">0</div>
+            <div class="label">kamers</div>
+        </div>
+        <div class="kaart">
+            <div class="getal" th:text="${aantalReseveringen}">0</div>
+            <div class="label">reseveringen</div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

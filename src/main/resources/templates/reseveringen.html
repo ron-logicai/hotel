@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reseveringen</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: kop}"></header>
+
+<main>
+    <h2>Reseveringen</h2>
+
+    <p><a class="knop" th:href="@{/reseveringen/nieuw}">Nieuwe resevering</a></p>
+
+    <table th:if="${!reseveringen.isEmpty()}">
+        <tr>
+            <th>Nummer</th>
+            <th>Gast</th>
+            <th>Kamer</th>
+            <th>Van</th>
+            <th>Tot</th>
+            <th>Nachten</th>
+            <th>Totaal</th>
+            <th>Betaald</th>
+            <th></th>
+        </tr>
+        <tr th:each="r : ${reseveringen}">
+            <td th:text="${r.reseveringNummer}">1</td>
+            <td th:text="${r.gast.name}">gast</td>
+            <td th:text="${r.kamer.nummer} + ' (' + ${r.kamer.type} + ')'">101</td>
+            <td th:text="${r.start}">van</td>
+            <td th:text="${r.eind}">tot</td>
+            <td th:text="${r.aantalNachten}">0</td>
+            <td th:text="'EUR ' + ${#numbers.formatDecimal(r.totaalPrijs, 1, 'POINT', 2, 'COMMA')}">EUR 0,00</td>
+            <td>
+                <span th:if="${r.betaald}" class="ja">betaald</span>
+                <span th:unless="${r.betaald}" class="nee">nee</span>
+            </td>
+            <td>
+                <form method="post" th:action="@{/reseveringen/__${r.reseveringNummer}__/verwijderen}">
+                    <button type="submit" class="verwijder">Annuleren</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <p class="leeg" th:if="${reseveringen.isEmpty()}">Nog geen reseveringen.</p>
+</main>
+
+</body>
+</html>
